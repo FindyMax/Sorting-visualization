@@ -1,0 +1,107 @@
+$font-color: white;
+$border: 5px, ridge, white;
+
+$width-of-wrapper: 70vw;
+$height-of-block: 40vh;
+$width-of-block: 5vw;
+$inactive-block-bg-color: grey;
+$checking-block-bg-color: green;
+$changing-block-bg-color: red;
+$number-of-blocks: 10;
+
+$space-between-blocks-and-btns: 5vh;
+
+$height-of-btn-wrapper: 20vh;
+$height-of-btn: 5vh;
+$btns-wrapper-bg-color: $inactive-block-bg-color;
+$width-of-btn: 5vw;
+$btn-border: 0.5vh, solid, black;
+$btn-bg-color: white;
+$btn-txt-color: black;
+
+
+body {
+    background-color: black;
+}
+.wrapper {
+    height: $height-of-block + $space-between-blocks-and-btns + $height-of-btn-wrapper;
+    width: $width-of-wrapper;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+
+.blocks {
+    height: $height-of-block;
+    width: $width-of-wrapper;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.block {
+    height: $height-of-block;
+    line-height: $height-of-block;
+    width: $width-of-block;
+    text-align: center;
+    background-color: $inactive-block-bg-color;
+    border: $border;
+}
+.num {
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $font-color;
+
+}
+
+.checking {
+    background-color: $checking-block-bg-color;
+}
+.changing {
+    background-color: $changing-block-bg-color;
+}
+
+@for $i from 1 to $number-of-blocks{
+    $height: $i/$number-of-blocks;
+    $margin-top: 1 - $height;
+
+    .block-#{$i} {
+        height: $height*$height-of-block;
+        line-height: $height*$height-of-block;
+        margin-top: $margin-top*$height-of-block;
+    }
+}
+
+
+.btns {
+    margin-top: $space-between-blocks-and-btns;
+    height: $height-of-btn-wrapper;
+    display: grid;
+    grid-template-columns: repeat(2, $width-of-wrapper/2);
+    background-color: $btns-wrapper-bg-color;
+    border: $border;
+}
+.btn {
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    height: $height-of-btn;
+    background-color: $btn-bg-color;
+    color: $btn-txt-color;
+    border: $btn-border;
+    border-radius: 5vh;
+}
+.default-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.sorts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Sort Simulation
+        link(rel="stylesheet", href="../style.css")
+    body 
+        .wrapper
+            .blocks
+                - var counter = 1;
+
+                while counter <= 10
+                    .block(class = "block-" + counter)
+                        h.num= counter++
+            .btns
+                .default-actions
+                    button.randomize.btn Перемешать
+                    button.pause.btn Пауза/Продолжить
+                .sorts
+                    - var sorts = [{class: "bubble-sort", text: "Сортировка пузырьком"}, {class: "shaker-sort", text: "Шейкерная сортировка"}, {class: "custom-sort", text: "Персонализированная сортировка"}]
+                    each i in sorts
+                        button.sort.btn(class = i.class)= i.text
+
+        script(src="../script.js") 
+
