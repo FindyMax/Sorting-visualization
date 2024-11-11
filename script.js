@@ -8,6 +8,7 @@ var custom_sort_btn = document.querySelector(".custom-sort");
 var changing = [];
 var checking = [];
 var pause = false;
+var is_busy = false;
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms)); 
@@ -112,7 +113,11 @@ async function custom_sort(array) { // Напишите вашу сортиро�
 }
 
 
-randomize_btn.addEventListener("click", function(){
+randomize_btn.addEventListener("click", async function(){
+    if (is_busy) {
+        alert("Дождитесь окончания сортировки");
+        return;
+    }
     randomize(blocksArray);
 })
 pause_btn.addEventListener("click", function() {
@@ -120,12 +125,30 @@ pause_btn.addEventListener("click", function() {
 })
 
 
-bubble_sort_btn.addEventListener("click", function(){
-    bubble_sort(blocksArray);
+bubble_sort_btn.addEventListener("click", async function(){
+    if (is_busy) {
+        alert("Дождитесь окончания сортировки");
+        return;
+    }
+    is_busy = true;
+    await bubble_sort(blocksArray);
+    is_busy = false;
 })
-shaker_sort_btn.addEventListener("click", function(){
-    shaker_sort(blocksArray);
+shaker_sort_btn.addEventListener("click", async function(){
+    if (is_busy) {
+        alert("Дождитесь окончания сортировки");
+        return;
+    }
+    is_busy = true;
+    await shaker_sort(blocksArray);
+    is_busy = false;
 })
-custom_sort_btn.addEventListener("click", function(){
-    custom_sort(blocksArray);
+custom_sort_btn.addEventListener("click", async function(){
+    if (is_busy) {
+        alert("Дождитесь окончания сортировки");
+        return;
+    }
+    is_busy = true;
+    await custom_sort(blocksArray);
+    is_busy = false;
 })

@@ -12,8 +12,8 @@ html(lang="en")
 
                 while counter <= 10
                     .block(class = "block-" + counter)
-                        h.num= counter++
-            .btns
+                        .num= counter++
+            .btns-and-explanation
                 .default-actions
                     button.randomize.btn Перемешать
                     button.pause.btn Пауза/Продолжить
@@ -21,6 +21,11 @@ html(lang="en")
                     - var sorts = [{class: "bubble-sort", text: "Сортировка пузырьком"}, {class: "shaker-sort", text: "Шейкерная сортировка"}, {class: "custom-sort", text: "Персонализированная сортировка"}]
                     each i in sorts
                         button.sort.btn(class = i.class)= i.text
+                .explanation
+                    .explanation-checking.explanation-block
+                        h1.explanation-checking-txt.explanation-block-txt= "Сравнение"
+                    .explanation-changing.explanation-block
+                        h1.explanation-changing-txt.explanation-block-txt= "Замена"
 
         script(src="../script.js") 
 

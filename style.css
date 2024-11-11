@@ -26,11 +26,11 @@ body {
   width: 5vw;
   text-align: center;
   background-color: grey;
-  border: 5px, ridge, white;
+  border: 1vh ridge white;
 }
 
 .num {
-  font-size: large;
+  font-size: 3vh;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
@@ -97,23 +97,23 @@ body {
   margin-top: 4vh;
 }
 
-.btns {
+.btns-and-explanation {
   margin-top: 5vh;
   height: 20vh;
   display: grid;
-  grid-template-columns: repeat(2, 35vw);
+  grid-template-columns: repeat(3, 23.3333333333vw);
   background-color: grey;
-  border: 5px, ridge, white;
+  border: 1vh ridge white;
 }
 
 .btn {
-  font-size: medium;
+  font-size: 2vh;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   height: 5vh;
   background-color: white;
   color: black;
-  border: 0.5vh, solid, black;
+  border: 0.5vh solid black;
   border-radius: 5vh;
 }
 
@@ -129,4 +129,33 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.explanation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.explanation-block {
+  height: 7vh;
+  width: 80%;
+  text-align: center;
+  border: 1vh ridge white;
+}
+
+.explanation-checking {
+  background-color: green;
+}
+
+.explanation-changing {
+  background-color: red;
+}
+
+.explanation-block-txt {
+  font-size: 3vh;
+  line-height: 3vh;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
 }/*# sourceMappingURL=style.css.map */
